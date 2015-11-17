@@ -14,12 +14,16 @@ int x = 800;
 int y = 750;
 string text = "True Love";
 
+ofSoundPlayer sound;
+
 //--------------------------------------------------------------
     void Thingy::setup(){
     
     
     font.loadFont("Lobster 1.4.otf", 80, true,true,true);
     xplodingString = new ofxExplodingString( &font, ofColor(255) );
+        
+    sound.loadSound("sounds/kiss.mp3");
 }
 
 //--------------------------------------------------------------
@@ -39,5 +43,6 @@ void Thingy::draw(){
 void Thingy::mousePressed(){
     
     xplodingString->explode(text, x, y);
+    sound.play();
     
 }
